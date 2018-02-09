@@ -18,6 +18,7 @@ music.src ="sounds/television-simpsons.mp3";
 window.onload = function() {
     var board = new Board();
     bart = new Skater();
+    music.play();
 
     setTimeout(function(){
       function updateGame(){
@@ -77,8 +78,6 @@ function hitBottom () {
 }
 
 function CheckCollition(homero,bart){
-  console.log (homero);
-  console.log (bart);
     return  (bart.x < homero.x + homero.width) &&
             (bart.x + bart.width > homero.x) &&
             (bart.y < homero.y + homero.height) &&
@@ -86,7 +85,6 @@ function CheckCollition(homero,bart){
   
 }
  function crash(){
-   console.log(homers)
   homers.forEach(function(homero){
     if(CheckCollition(homero,bart)){
       stopGame();
@@ -105,4 +103,3 @@ function CheckCollition(homero,bart){
 }
 
 startGame();
-music.play();
